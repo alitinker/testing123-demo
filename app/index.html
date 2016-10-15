@@ -1,0 +1,79 @@
+
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="dist/images/favicon.png">
+
+<title>Test Suite Demo</title>
+
+<link rel="stylesheet" href="dist/css/style.css"></link>
+</head>
+
+<body ng-app="courseReserveApp">
+	<nav id="menu-container">
+		<a href="javascript;:" tabindex="0" aria-label="Menu" class="menu-btn">
+		    <svg>
+		      <use xlink:href="dist/icons/sprite/icons.svg#menu-icon"/>
+		    </svg>
+		</a>
+		<ul class="menu-links">
+			<li><a href="#/"><h1>Course Reserves</h1></a></li>
+			<li><a id="l1" href="#/info">Info for Faculty</a></li>
+			<li><a id="l2" href="#/suggest-purchase">Suggest a Purchase</a></li>
+			<li><a id="l4" href="#/my-reserves">My Reserves</a></li>
+		</ul>
+	</nav>
+	<nav id="menu" tabindex="-1" aria-expanded="false" aria-hidden="true">
+		<ul id="menu-inner" class="left">
+			<li><a id="tab-target" href="#"><h1>Course Reserves</h1></a></li>
+			<li><a href="#">Info for Faculty</a></li>
+			<li><a href="#">Suggest a Purchase</a></li>
+			<li><a href="#">Tutorials</a></li>
+			<li><a href="#">View Course Listing</a></li>
+		</ul>
+	</nav>
+<!-- END HEADER -->
+	<main ng-view>
+
+
+	</main>
+
+<!--BEGIN FOOTER-->	
+	<footer ng-controller="FooterCtrl">
+		<div>
+			<ul class="contact">
+				<li><strong>Hogwarts School of Witchcraft and Wizardy</strong></li>
+				<li>Address: Unplottable</li>
+			</ul>
+
+			<ul class="social">
+				<li><strong>Connect with us</strong></li>
+				<a href="">
+				    <svg>
+				      <use xlink:href="dist/icons/sprite/icons.svg#facebook-icon"/>
+				    </svg>
+			    </a>
+			    <a href="">
+	    		    <svg>
+				      <use xlink:href="dist/icons/sprite/icons.svg#twitter-icon"/>
+				    </svg>
+			    </a>
+			    <a href="">
+	    		    <svg>
+				      <use xlink:href="dist/icons/sprite/icons.svg#wordpress-icon"/>
+				    </svg>
+			    </a>
+			</ul>
+
+		</div>
+	</footer>
+<!--END FOOTER-->
+<script src="dist/js/app.js" type="text/javascript"></script>
+</body>
+</html>
+

@@ -1,0 +1,350 @@
+@import "skeleton";
+@import "variables";
+@import "mixins";
+@import "forms-new";
+
+html, body { height: 100%; }
+
+body { 
+	background: #000000;
+	@include body-font-family;
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  @include h1-font-family;
+}
+
+a, a:link, a:visited, a:hover {color: $color-primary;}
+
+a.skip-to-content {
+    visibility: visible;
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+    box-shadow: rgb(8, 8, 8) 3px 3px 3px;
+    left: -230px;
+    background: rgb(255, 255, 255);
+    padding: 11px;
+    border-radius: 0px 0px 3px;
+
+    &:focus, &:active, &:hover {
+      left: 0px;
+    }
+}
+
+.button, a.button {
+    display: inline-block;
+    border: none;
+    background: $color-primary;
+    padding: 10px 20px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    vertical-align: middle;
+    @extend %transition;
+   }
+.button:hover, a.button:hover {
+   background: $color-secondary;
+   }
+.button:active, a.button:active {
+   background: #1b435e;
+   }
+
+#menu-container {
+  @extend %clearfix;
+  @extend %transition;
+  // position: absolute;
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+  background: #020001;
+}
+
+.menu-btn {
+  display: none;
+  color: $color-primary;
+  padding: 15px;
+  cursor: pointer;
+
+    svg {
+      @extend %svgicon;
+      fill: #3d3d3d;
+    }
+}
+
+.menu-links {
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li { display: inline; }
+
+  a, a:link, a:visited {
+    color: #FFFFFF;
+    margin: 0 20px;
+    font-weight: 600;
+    text-decoration: none;
+    @extend %transition;
+
+    &:hover {
+      color: $color-primary;
+      padding: 2px 0;
+    }
+  }
+
+  h1 { 
+    text-transform: uppercase;
+    display: inline; 
+    font-size: 18px; 
+    color: #06a5f1;
+    font-weight: 400;
+  }
+}
+
+#menu {
+  display: none;
+
+  #menu-inner {
+    position: fixed;
+    background: #3d3d3d;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-transition: -webkit-transform ease 250ms;
+    -moz-transition: -webkit-transform ease 250ms;
+    -ms-transition: -webkit-transform ease 250ms;
+    -o-transition: -webkit-transform ease 250ms;
+    transition: -webkit-transform ease 250ms;
+    -webkit-transition: transform ease 250ms;
+    -moz-transition: transform ease 250ms;
+    -ms-transition: transform ease 250ms;
+    -o-transition: transform ease 250ms;
+    transition: transform ease 250ms;
+
+      ul { 
+        display: block; 
+        margin: 0;
+        padding: 0;
+      }
+
+      li { 
+        display: block;
+        background: $color-accent;
+        border-bottom: 3px solid #3d3d3d;
+        @extend %clearfix;
+
+        h1 {
+          @include h1-font-family;
+          display: inline;
+          font-size: 18px;
+          text-transform: uppercase;
+          color: #3d3d3d;
+        }
+
+        a, a:link, a:visited {
+          padding: 12px;
+          display: block;
+          text-decoration: none;
+          font-weight: bold;
+          color: #3d3d3d;
+        }
+        a:hover {
+          background-color: #ffffff;
+          color: $color-primary;
+        }
+
+      }
+  }
+
+}
+
+.left {
+  background: #ffffff;
+  color: $color-primary;
+  left: -250px;
+}
+
+.show {
+    transform: translate3d(250px, 0, 0);
+    -ms-transform: translate3d(250px, 0, 0);
+    -webkit-transform: translate3d(250px, 0, 0);
+    -o-transform: translate3d(250px, 0, 0);
+    -moz-transform: translate3d(250px, 0, 0);
+}
+
+.no-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+.intro {
+    @extend %clearfix;
+    height: 600px;
+    background: url('../images/lib-bg-blue.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: $color-accent;
+    text-align: center;
+
+    #intro-content {
+      width: 300px;
+      margin: 200px auto;
+    }
+
+    span {
+      @include lib-font-family;
+      font-size: 42px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 64px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+}
+
+.interior {
+    @extend %clearfix;
+    color: $color-accent;
+    background-color: darken($color-secondary, 5%);
+    text-align: center;
+
+    #interior-content {
+      margin: 82px auto 40px auto;
+    }
+
+    span {
+      @include lib-font-family;
+      font-size: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      text-align: center;
+    }
+}
+
+section {
+  background: #FFFFFF;
+  @extend %clearfix;
+}
+
+
+.box {
+  @include container;
+  background: #FFFFFF;
+  margin-bottom: 25px;
+
+  .box-content, aside {
+    padding: 30px;
+  }
+
+  .box-content {
+    @include columns(11);
+
+    p {line-height: 27px;}
+  }
+
+  .box-content.flickr-content {
+    width: 100%;
+  }
+
+  .box-content.content-output {
+    padding-bottom: 0;
+  }
+
+  aside {
+    @include columns(5);
+  }
+
+  h1,h2,h3,h4 {
+    color: #000000;
+    margin-top: 0;
+  }
+
+  ul li, ol li {
+    margin: 10px 0;
+    line-height: 27px;
+  }
+}
+
+aside {
+    font-size: 13px;
+    line-height: 20px;
+
+    h1,h2, h3, h4 {
+      font-size: 18px;
+    }
+
+    img {
+      width: 100%;
+    }
+}
+
+.my-reserves {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer {
+  @extend %clearfix;
+  background: #000000;
+  color: #ffffff;
+  padding: 30px 0;
+
+  svg {
+    @extend %svgicon;
+    fill: #ffffff;
+    width: 20px;
+    height: 20px;
+    margin: 10px 10px 0 0;
+  }
+
+  div {@include container;}
+
+  .contact {
+    @include columns(12);
+    padding: 20px;
+  }
+
+  a, a:link, a:visited, a:hover {
+    color: $color-accent;
+  }
+
+  .social {
+    @include columns(4);
+    padding: 20px;
+
+    a, a:link, a:visited, a:hover {
+      text-decoration: none;
+    }
+  }
+
+  ul, li {
+    list-style: none;
+    padding: 5px 0;
+  }
+
+
+
+}
+
+/* @end */

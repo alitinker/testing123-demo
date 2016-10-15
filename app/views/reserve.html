@@ -1,0 +1,124 @@
+		<div id="heading" class="intro">
+			<div id="intro-content">
+				<span>Hogwarts Library</span><br/>
+				<h1>Course Reserves</h1>
+			</div>
+		</div>
+<!-- START CONTENT -->
+		<a id="begincontent" name="begincontent" title="Begin content" href="#"></a>
+		<section>
+			<div class="box">
+				<div class="box-content" ng-hide="formState">
+					<h1>Reserve an item from the collection</h1>
+					<p>We urge you to read <a href="#/info">Info for Faculty</a> carefully before submitting a request.</p>
+
+					<form class="lib-form" name="reserveItem">
+					    <fieldset>
+					        <legend>Instructor Information</legend>
+
+					        <div>
+					            <div class="multi-row">
+					                <label for="firstName">First Name</label>
+					                <input name="firstName" type="text" ng-model="data.firstName">
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="lastName">Last Name</label>
+					                <input name="lastName" type="text" ng-model="data.lastNname">
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="email">E-Mail</label>
+					                <input name="email" type="email" required ng-model="data.email">
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="dept">Department</label>
+					                <input name="dept" type="text" ng-model="data.dept">
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="libSection">Library Section (if known)</label>
+					                <select name="libSection" ng-model="data.libSection">
+					                	<option>Reference Section</option>
+					                    <option>Restricted Section</option>
+					                    <option>Invisibility Section</option>
+					                    <option>Dragon Section</option>
+					                    <option>Legal Section</option>
+					                    <option>Other</option>
+					                </select>
+					            </div>
+					        </div>
+					    </fieldset>
+
+					    <fieldset>
+					        <legend>Course Information</legend>
+
+					        <div>
+					            <div class="multi-row">
+					                <label for="courseNumber">Course Number</label>
+					                <input name="courseNumber" type="text" ng-model="data.courseNumber" required>
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="courseTitle">Course Title</label>
+					                <input name="courseTitle" type="text" ng-model="data.courseTitle" required>
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="courseSection">Section</label>
+					                <input name="courseSection" type="text" ng-model="data.courseSection">
+					            </div>
+					        </div>
+
+					    </fieldset>
+					    <fieldset>
+					        <legend>Item Information</legend>
+
+					        <div>
+					            <div class="multi-row">
+					                <label for="author">Author</label>
+					                <input name="author" type="text" ng-model="data.author" required>
+					            </div>
+
+					            <div class="multi-row">
+					                <label for="itemTitle">Title</label>
+					                <input id="itemTitle" type="text" ng-model="data.itemTitle" required>
+					            </div>
+					        </div>
+
+					    </fieldset>
+
+
+					    <fieldset>
+					        <legend>Additional Info</legend>
+
+					        <div>
+					            <div class="single-row">
+					                <label for="comments">General Comments</label>
+					                <textarea name="comments" type="text" placeholder="Add your comments" ng-model="data.comments"></textarea>
+					            </div>
+					        </div>
+					        <label for="terms" class="checkbox">
+					            <input name="terms" type="checkbox" ng-model="data.copyright"> I've read the copyright regulations
+					        </label>
+
+					        <button type="submit" class="button" ng-click="submitCourseReserve()">Submit</button>
+					    </fieldset>
+					</form>
+
+				</div>
+				<div class="box-content" ng-show="formState">
+					<h1>Thanks for your submission!</h1>
+					<p>We will inform you when your reservations are ready. Go to <a href="#/my-reserves">My Reservations</a> to view all your course reserves.</p>
+					<button class="button" ng-click="submitNew()">Make another reservation</button>
+				</div>
+				<aside>
+				<img src="assets/images/potions.png" alt="Advanced Potions">
+				<p>
+					Faculty can use the course reserves form to place a hold on required texts for their courses.
+				</p>
+				</aside>
+			</div>
+		</section>
+<!-- END CONTENT -->

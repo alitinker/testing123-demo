@@ -1,0 +1,29 @@
+		<div id="heading" class="interior">
+			<div id="interior-content">
+				<h1>My Reservations</h1>
+			</div>
+		</div>
+<!-- START CONTENT -->
+		<section ng-controller="ReserveCtrl">
+			<div class="box">
+				<div class="box-content">
+					<h2>Your reserved materials</h2>
+					<p ng-show="myReserves.length == 0">You currently do not have any reserved course materials. <a href="#/">Make a new reservation</a>.</p>
+					<div class="my-reserves" ng-repeat="reserved in myReserves">
+						
+						<p>Course: {{reserved.courseTitle}} ({{reserved.courseSection}}{{reserved.courseNumber}})</p>
+						<p>Title: <em>{{reserved.itemTitle}}</em></p>
+						<p>Author: {{reserved.author}}</p>
+						<p>Library section: {{reserved.libSection}}</p>
+						
+					</div>
+				</div>
+				<aside>
+				<img src="assets/images/potions.png" alt="Advanced Potions">
+				<p>
+					Faculty can use the course reserves forms to place a hold on required texts for their courses.
+				</p>
+				</aside>
+			</div>
+		</section>
+<!-- END CONTENT -->
