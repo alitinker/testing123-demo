@@ -10,9 +10,11 @@ You need to install the following items in order to download the dependencies an
 - [Protractor](http://www.protractortest.org/)
 - [Gulp](http://gulpjs.com/)
 
+Then, install the dependencies listed in package.json. Cd into the root of the project folder and run `npm install` (you may have to use `sudo`).
+
 ##Build
 
-After you've installed the items listed above, cd into the root of this project folder and build the dist files by running this command:
+After you've installed the items listed above and the dependencies, build the dist files by running this command:
 	
 	gulp build
 
