@@ -13,7 +13,3 @@ wordpress:
 facebook:
   title: Facebook
   description: Facebook logo
-
-play:
-  title: Play
-  description: Play icon

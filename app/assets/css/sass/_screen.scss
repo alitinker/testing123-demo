@@ -21,22 +21,6 @@ h1, h2, h3, h4 {
 
 a, a:link, a:visited, a:hover {color: $color-primary;}
 
-a.skip-to-content {
-    visibility: visible;
-    position: fixed;
-    top: 0px;
-    z-index: 999;
-    box-shadow: rgb(8, 8, 8) 3px 3px 3px;
-    left: -230px;
-    background: rgb(255, 255, 255);
-    padding: 11px;
-    border-radius: 0px 0px 3px;
-
-    &:focus, &:active, &:hover {
-      left: 0px;
-    }
-}
-
 .button, a.button {
     display: inline-block;
     border: none;
@@ -58,25 +42,12 @@ a.skip-to-content {
    }
 
 #menu-container {
-  @extend %clearfix;
-  @extend %transition;
-  // position: absolute;
+  @include clearfix;
   position: fixed;
+  padding: 15px;
   width: 100%;
   z-index: 4;
-  background: #020001;
-}
-
-.menu-btn {
-  display: none;
-  color: $color-primary;
-  padding: 15px;
-  cursor: pointer;
-
-    svg {
-      @extend %svgicon;
-      fill: #3d3d3d;
-    }
+  background: #000000;
 }
 
 .menu-links {
@@ -86,7 +57,7 @@ a.skip-to-content {
     padding: 0;
   }
 
-  li { display: inline; }
+  menu-item { display: inline-block; }
 
   a, a:link, a:visited {
     color: #FFFFFF;
@@ -110,14 +81,25 @@ a.skip-to-content {
   }
 }
 
-#menu {
+.menu-btn {
   display: none;
+  color: #FFFFFF;
+  cursor: pointer;
+
+   svg {
+    @extend %svgicon;
+    fill: #ffffff;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+menu {
+  display: inline-block;
 
   #menu-inner {
     position: fixed;
-    background: #3d3d3d;
     margin: 0;
-    padding: 0;
     z-index: 5;
     top: 0;
     width: 250px;
@@ -135,65 +117,51 @@ a.skip-to-content {
     -o-transition: transform ease 250ms;
     transition: transform ease 250ms;
 
-      ul { 
-        display: block; 
-        margin: 0;
-        padding: 0;
-      }
-
-      li { 
+      menu-item { 
         display: block;
-        background: $color-accent;
-        border-bottom: 3px solid #3d3d3d;
-        @extend %clearfix;
+        border-bottom: 1px solid #ccc;
+        @include clearfix;
 
         h1 {
-          @include h1-font-family;
-          display: inline;
-          font-size: 18px;
+          font-family: 'Share Tech Mono';
           text-transform: uppercase;
-          color: #3d3d3d;
+          display: inline;
         }
 
-        a, a:link, a:visited {
+        a {
           padding: 12px;
           display: block;
           text-decoration: none;
           font-weight: bold;
-          color: #3d3d3d;
         }
         a:hover {
-          background-color: #ffffff;
-          color: $color-primary;
+          background-color: $color-secondary;
+          color: #ffffff;
         }
 
       }
+      menu-item:first-of-type {padding: 12px;}
   }
 
-}
+  div.left{
+    background: #ffffff;
+    color: $color-primary;
+    left: -250px;
+  }
 
-.left {
-  background: #ffffff;
-  color: $color-primary;
-  left: -250px;
-}
-
-.show {
+  div.show.left {
     transform: translate3d(250px, 0, 0);
     -ms-transform: translate3d(250px, 0, 0);
     -webkit-transform: translate3d(250px, 0, 0);
     -o-transform: translate3d(250px, 0, 0);
     -moz-transform: translate3d(250px, 0, 0);
-}
+  }
 
-.no-scroll {
-    height: 100%;
-    overflow: hidden;
 }
 
 .intro {
     @extend %clearfix;
-    height: 600px;
+    height: 400px;
     background: url('../images/lib-bg-blue.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -201,8 +169,8 @@ a.skip-to-content {
     text-align: center;
 
     #intro-content {
-      width: 300px;
-      margin: 200px auto;
+      width: 320px;
+      margin: 95px auto;
     }
 
     span {
@@ -225,17 +193,11 @@ a.skip-to-content {
     text-align: center;
 
     #interior-content {
-      margin: 82px auto 40px auto;
-    }
-
-    span {
-      @include lib-font-family;
-      font-size: 24px;
+      margin: 45px auto 40px auto;
     }
 
     h1 {
       margin: 0;
-      font-size: 32px;
       text-align: center;
     }
 }

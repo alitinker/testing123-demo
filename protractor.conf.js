@@ -1,18 +1,18 @@
+// conf.js
 exports.config = {
+  framework: 'jasmine',
+  directConnect: true,
 
-  chromeOnly: true,
-  chromeDriver: './node_modules/protractor/selenium/chromedriver',
-
-  capabilities: {
-    'browserName': 'chrome'
-  },
-
-  specs: ['test/e2e/**/*_spec.js'],
+  //If you don't need tests to run in a particular order, you can use this instead:
+  specs: ['test/e2e/**/*-spec.js'],
 
   rootElement: '[ng-app]',
 
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 30000
+    defaultTimeoutInterval: 80000
+  },
+  onPrepare: function() {
+    browser.manage().window().setSize(1600, 1000);
   }
-};
+}
