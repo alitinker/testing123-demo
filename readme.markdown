@@ -4,13 +4,15 @@ Automated testing demo for edUI conference.
 
 ##Set up
 
-You need to install the following items in order to download the dependencies and run the sample tests. Follow the installation procedures that are outlined in their documenation:
+You need to install the following items in order to download the dependencies and run the sample tests. Follow the installation procedures that are outlined in the documentation for each item:
 
 - [NodeJS](https://nodejs.org)
 - [Protractor](http://www.protractortest.org/)
 - [Gulp](http://gulpjs.com/)
 
-Then, install the dependencies listed in package.json. Cd into the root of the project folder and run `npm install` (you may have to use `sudo`).
+Then, install the dependencies listed in package.json. To do this, cd into the root of the project folder and run `npm install`. 
+
+Don't use `sudo` when you install the dependencies. If you do, the postinstall script will probably not work and you will have to run `webdriver-manager update` manually in order to get the drivers needed to run the protractor tests.
 
 ##Build
 
@@ -32,6 +34,6 @@ To run the e2e tests, use this gulp command:
 
 	gulp e2e
 
-You can alternatively use the commands `karma start` to run the unit tests and `protractor` to run the e2e tests. 
+Alternatively, you can use the commands `karma start` to run the unit tests and `protractor` to run the e2e tests. 
 
 

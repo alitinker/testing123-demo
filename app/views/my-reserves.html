@@ -8,7 +8,7 @@
 			<div class="box">
 				<div class="box-content">
 					<h2>Your reserved materials</h2>
-					<p ng-show="myReserves.length == 0">You currently do not have any reserved course materials. <a href="#/">Make a new reservation</a>.</p>
+					<p class="reserve-status" ng-show="myReserves.length == 0">You currently do not have any reserved course materials. <a href="#/">Make a new reservation</a>.</p>
 					<div class="my-reserves" ng-repeat="reserved in myReserves">
 						
 						<p>Course: {{reserved.courseTitle}} ({{reserved.courseSection}}{{reserved.courseNumber}})</p>

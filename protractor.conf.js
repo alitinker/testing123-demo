@@ -1,7 +1,9 @@
 // conf.js
 exports.config = {
   framework: 'jasmine',
-  directConnect: true,
+  capabilities: {
+    browserName: 'chrome'
+  },
 
   //If you don't need tests to run in a particular order, you can use this instead:
   specs: ['test/e2e/**/*-spec.js'],

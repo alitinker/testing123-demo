@@ -10,6 +10,9 @@ var courseReservesPage = function() {
 	};
 
 	//Form elements
+	this.formContainer = element(by.id('formContainer'));
+	this.formStatus = element(by.id('formStatus'));
+
 	this.firstName = element(by.css('[name="firstName"]'));
 	this.lastName = element(by.css('[name="lastName"]'));
 	this.email = element(by.css('[name="email"]'));
@@ -24,6 +27,22 @@ var courseReservesPage = function() {
 		element(by.cssContainingText('option', optionName)).click();
 	};
 
+	this.submitButton = element(by.css('[type="submit"]'));
+
+	//Fill Form
+	this.fillForm = function () {
+		this.firstName.sendKeys('Minerva');
+		this.lastName.sendKeys('McGonagall');
+		this.email.sendKeys('mmcgonagall@hogwarts.ack.uk');
+		this.dept.sendKeys('Transfiguration');
+		this.libSection('Other');
+		this.courseNumber.sendKeys('5678');
+		this.courseTitle.sendKeys('Transfiguration II');
+		this.courseSection.sendKeys('A');
+		this.author.sendKeys('Emeric Switch');
+		this.itemTitle.sendKeys('A Beginner\'s Guide to Transfiguration');
+		this.submitButton.click();
+	};
 };
 
 
