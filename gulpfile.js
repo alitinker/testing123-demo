@@ -52,22 +52,57 @@ var liveReload = true;
 
 gulp.task('clean', function () {
   return gulp
-  .src([paths.root + 'ngAnnotate', paths.dist + 'js'], {read: false})
+  .src([paths.dist + 'js'], {read: false})
   .pipe(vinylPaths(del));
 });
 
-gulp.task('images', function() {
-  return gulp.src(paths.root + 'assets/images/**')
-    .pipe(gulpPlugins.cache(gulpPlugins.imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-    .pipe(gulp.dest(paths.dist + 'images'));
-});
-
+//SASS compile
 gulp.task('styles', function() {
     gulp.src(paths.sassCompile)
         .pipe(gulpPlugins.sass({outputStyle: 'compressed'}).on('error', gulpPlugins.sass.logError))
         .pipe(gulp.dest(paths.dist + 'css'))
 });
 
+//Image compression
+gulp.task('images', function() {
+  return gulp.src(paths.root + 'assets/images/**')
+    .pipe(gulpPlugins.cache(gulpPlugins.imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+    .pipe(gulp.dest(paths.dist + 'images'));
+});
+
+//Icon config
+var svgSpriteConfig = {
+  mode: {
+    symbol: {
+      dest: '',
+      sprite: 'icons.svg'
+    }
+  },
+  shape: {
+    // Titles and descriptions
+    meta: paths.root + 'assets/icons/icon-titles/icon-titles.yaml',
+    // Add suffix to IDs
+    id: {
+      generator: '%s-icon'
+    }
+  }
+};
+
+//Create icon sprite
+gulp.task('icons', function () {
+  return gulp.src(paths.root + 'assets/icons/*.svg')
+      .pipe(gulpPlugins.cheerio({
+        run: function ($) {
+            //remove fill attribute so we can set it in the css
+            $('[fill]').removeAttr('fill'); 
+        },
+        parserOptions: { xmlMode: true }
+    }))
+    .pipe(gulpPlugins.svgSprite(svgSpriteConfig))
+    .pipe(gulp.dest(paths.dist + 'icons'));
+});
+
+//JS linting
 gulp.task('lint', function () {
   return gulp
   .src(['gulpfile.js',
@@ -80,6 +115,7 @@ gulp.task('lint', function () {
   .pipe(gulpPlugins.eslint.format());
 });
 
+//Unit tests
 gulp.task('unit', function () {
   return gulp.src([
     paths.test + 'unit/**/*.js'
@@ -87,6 +123,7 @@ gulp.task('unit', function () {
   .pipe(gulpPlugins.mocha({reporter: 'dot'}));
 });
 
+//Browserify 
 gulp.task('browserify', /*['lint', 'unit'],*/ function () {
   return browserify(paths.src + 'app.js', {debug: true})
   .bundle()
@@ -95,17 +132,8 @@ gulp.task('browserify', /*['lint', 'unit'],*/ function () {
   .pipe(gulpPlugins.connect.reload());
 });
 
-gulp.task('ngAnnotate', ['lint', 'unit'], function () {
-  return gulp.src([
-      paths.src + '**/*.js',
-      '!' + paths.src + 'third-party/**',
-  ])
-  .pipe(gulpPlugins.ngAnnotate())
-  .pipe(gulp.dest(paths.root + 'ngAnnotate'));
-});
-
-gulp.task('browserify-min', ['ngAnnotate'], function () {
-  return browserify(paths.root + 'ngAnnotate/app.js')
+gulp.task('browserify-min', function () {
+  return browserify(paths.src + 'app.js')
   .bundle()
   .pipe(source('app.min.js'))
   .pipe(gulpPlugins.streamify(gulpPlugins.uglify({mangle: false})))
@@ -168,8 +196,9 @@ gulp.task('watch', function () {
 
 gulp.task('build', function () {
   gulp.start('browserify');
-  gulp.start('images');
   gulp.start('styles');
+  gulp.start('images');
+  gulp.start('icons');
 });
 
 gulp.task('fast', ['clean'], function () {

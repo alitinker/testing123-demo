@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports = function($scope, $rootScope, VERSION) {
-  $scope.version = VERSION;
+module.exports = function($scope, $rootScope) {
 
   $scope.leftVisible = false;
     $scope.rightVisible = false;

@@ -15,28 +15,27 @@
 </head>
 
 <body ng-app="courseReserveApp">
-	<nav id="menu-container">
-		<a href="javascript;:" tabindex="0" aria-label="Menu" class="menu-btn">
-		    <svg>
-		      <use xlink:href="dist/icons/sprite/icons.svg#menu-icon"/>
-		    </svg>
-		</a>
-		<ul class="menu-links">
-			<li><a href="#/"><h1>Course Reserves</h1></a></li>
-			<li><a id="l1" href="#/info">Info for Faculty</a></li>
-			<li><a id="l2" href="#/suggest-purchase">Suggest a Purchase</a></li>
-			<li><a id="l4" href="#/my-reserves">My Reserves</a></li>
-		</ul>
-	</nav>
-	<nav id="menu" tabindex="-1" aria-expanded="false" aria-hidden="true">
-		<ul id="menu-inner" class="left">
-			<li><a id="tab-target" href="#"><h1>Course Reserves</h1></a></li>
-			<li><a href="#">Info for Faculty</a></li>
-			<li><a href="#">Suggest a Purchase</a></li>
-			<li><a href="#">Tutorials</a></li>
-			<li><a href="#">View Course Listing</a></li>
-		</ul>
-	</nav>
+	<div ng-controller="MenuCtrl">
+		<div id="menu-container">
+			<div class="menu-btn" ng-click="showLeft($event)">
+			    <svg>
+			      <use xlink:href="dist/icons/icons.svg#menu-icon"/>
+			    </svg>
+			</div>
+			<div class="menu-links">
+				<menu-item><h1>Course Reserves</h1></menu-item>
+				<menu-item hash="home"><a href="#/">Reserve Materials</a></menu-item>
+				<menu-item hash="info"><a href="#/info">Info for Faculty</a></menu-item>
+				<menu-item hash="my-reserves"><a href="#/my-reserves">My Reserves</a></menu-item>
+			</div>
+		</div>
+		<menu visible="leftVisible" alignment="left">
+				<menu-item><h1>Course Reserves</h1></menu-item>
+				<menu-item hash="home"><a href="#/">Reserve Materials</a></menu-item>
+				<menu-item hash="info"><a href="#/info">Info for Faculty</a></menu-item>
+				<menu-item hash="my-reserves"><a href="#/my-reserves">My Reserves</a></menu-item>
+		</menu>
+	</div>
 <!-- END HEADER -->
 	<main ng-view>
 
@@ -55,17 +54,17 @@
 				<li><strong>Connect with us</strong></li>
 				<a href="">
 				    <svg>
-				      <use xlink:href="dist/icons/sprite/icons.svg#facebook-icon"/>
+				      <use xlink:href="dist/icons/icons.svg#facebook-icon"/>
 				    </svg>
 			    </a>
 			    <a href="">
 	    		    <svg>
-				      <use xlink:href="dist/icons/sprite/icons.svg#twitter-icon"/>
+				      <use xlink:href="dist/icons/icons.svg#twitter-icon"/>
 				    </svg>
 			    </a>
 			    <a href="">
 	    		    <svg>
-				      <use xlink:href="dist/icons/sprite/icons.svg#wordpress-icon"/>
+				      <use xlink:href="dist/icons/icons.svg#wordpress-icon"/>
 				    </svg>
 			    </a>
 			</ul>
