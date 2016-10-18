@@ -1,6 +1,6 @@
 // conf.js
 exports.config = {
-  framework: 'jasmine',
+  framework: 'jasmine2',
   capabilities: {
     browserName: 'phantomjs'
   },
