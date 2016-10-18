@@ -2,7 +2,7 @@
 
 var ReservesPage = require('./pages/course-reserves-page.js');
 
-describe('The course reserve app (making a reservation)', function() {
+describe('The course reserve app (reserving course material)', function() {
 
   var courseReservesPage;
 
@@ -11,14 +11,14 @@ describe('The course reserve app (making a reservation)', function() {
     courseReservesPage.open();
   });
 
-  it('should make a reservation', function() {
+  it('should reserve course material', function() {
 	courseReservesPage.fillForm();
 
 	var reserveForm = courseReservesPage.formContainer;
-	expect(reserveForm.isDisplayed()).toBe(true);
+	expect(reserveForm.isDisplayed()).toBe(false);
 
 	var reserveStatus = courseReservesPage.formStatus;
-	expect(reserveStatus.isDisplayed()).toBe(false);
+	expect(reserveStatus.isDisplayed()).toBe(true);
 	
   });
 
