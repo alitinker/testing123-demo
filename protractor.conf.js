@@ -16,5 +16,9 @@ exports.config = {
   },
   onPrepare: function() {
     browser.manage().window().setSize(1600, 1000);
+
+    var SpecReporter = require('jasmine-spec-reporter');
+    // add jasmine spec reporter
+    jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all'}));
   }
 }
