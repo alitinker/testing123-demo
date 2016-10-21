@@ -113,8 +113,6 @@ gulp.task('lint', function () {
   .pipe(gulpPlugins.eslint.format());
 });
 
-
-
 //Browserify 
 gulp.task('browserify', /*['lint', 'unit'],*/ function () {
   return browserify(paths.src + 'app.js', {debug: true})
@@ -137,6 +135,13 @@ gulp.task('server', ['browserify'], function () {
     root: 'app',
     livereload: liveReload,
   });
+});
+
+gulp.task('unit', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('e2e', ['server'], function () {
@@ -177,5 +182,5 @@ gulp.task('fast', ['clean'], function () {
 
 gulp.task('default', ['clean'], function () {
   liveReload = false;
-  gulp.start('karma', 'browserify', 'browserify-min', 'e2e');
+  gulp.start('browserify', 'browserify-min', 'unit', 'e2e');
 });

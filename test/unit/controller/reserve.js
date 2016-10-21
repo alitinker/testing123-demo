@@ -15,8 +15,11 @@ describe('ReserveCtrl', function() {
       controller = $controller('ReserveCtrl', { $scope: $scope });
     });
 
-    it('adds form data to object if submit button is clicked', inject(['DataService',
-      function(DataService) {
+    it('should have a ReserveCtrl controller', function() {
+      expect(controller).toBeDefined();
+    });
+
+    it('adds form data to object if submit button is clicked', function() {
         $scope.data = {
           firstName: 'Minerva',
           lastName: 'McGonagall',
@@ -30,8 +33,9 @@ describe('ReserveCtrl', function() {
           itemTitle: 'A Beginner\'s Guide to Transfiguration'
         };
         $scope.submitCourseReserve();
+        expect($scope.myReserves[0].firstName).toEqual('Minerva');
         expect($scope.formState).toBe(true);
-      }])
-    );
+
+      });
   });
 });
