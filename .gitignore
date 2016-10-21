@@ -4,8 +4,5 @@ node_modules
 *.swp
 *.un~
 
-app/ngmin
-app/ngAnnotate
-app/dist
 app/assets/css/.sass-cache
 
