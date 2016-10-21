@@ -1,16 +1,18 @@
 #TESTING 1-2-3
 
+[![Build Status](https://travis-ci.org/alitinker/testing123-demo.svg?branch=master)](https://travis-ci.org/alitinker/testing123-demo.svg?branch=master)
+
 Automated testing demo for edUI conference.
 
 ##Set up
 
-You need to install the following items in order to download the dependencies and run the sample tests. Follow the installation procedures that are outlined in the documentation for each item:
+You need to install the following items so that you can download the dependencies and run the sample tests. Follow the installation procedures that are outlined in the documentation for each item:
 
 - [NodeJS](https://nodejs.org)
 - [Protractor](http://www.protractortest.org/)
 - [Gulp](http://gulpjs.com/)
 
-Then, install the dependencies listed in package.json. To do this, cd into the root of the project folder and run `npm install`. 
+Then, install the dependencies listed in package.json (cd into the root of the project folder and run `npm install`). 
 
 Don't use `sudo` when you install the dependencies. If you do, the postinstall script will probably not work and you will have to run `webdriver-manager update` manually in order to get the drivers needed to run the protractor tests.
 

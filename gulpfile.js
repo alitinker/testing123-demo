@@ -107,21 +107,13 @@ gulp.task('lint', function () {
   return gulp
   .src(['gulpfile.js',
       paths.src + '**/*.js',
-      paths.test + '**/*.js',
-      '!' + paths.src + 'third-party/**',
-      '!' + paths.test + 'browserified/**',
+      paths.test + '**/*.js'
   ])
   .pipe(gulpPlugins.eslint())
   .pipe(gulpPlugins.eslint.format());
 });
 
-//Unit tests
-gulp.task('unit', function () {
-  return gulp.src([
-    paths.test + 'unit/**/*.js'
-  ])
-  .pipe(gulpPlugins.mocha({reporter: 'dot'}));
-});
+
 
 //Browserify 
 gulp.task('browserify', /*['lint', 'unit'],*/ function () {
@@ -138,28 +130,6 @@ gulp.task('browserify-min', function () {
   .pipe(source('app.min.js'))
   .pipe(gulpPlugins.streamify(gulpPlugins.uglify({mangle: false})))
   .pipe(gulp.dest(paths.dist + 'js'));
-});
-
-gulp.task('browserify-tests', function () {
-  var bundler = browserify({debug: true});
-  glob
-  .sync(paths.test + 'unit/**/*.js')
-  .forEach(function (file) {
-    bundler.add(file);
-  });
-  return bundler
-  .bundle()
-  .pipe(source('browserified_tests.js'))
-  .pipe(gulp.dest(paths.test + 'browserified'));
-});
-
-gulp.task('karma', ['browserify-tests'], function (done) {
-    new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, function() {
-        done();
-    });
 });
 
 gulp.task('server', ['browserify'], function () {
