@@ -2,7 +2,7 @@
 exports.config = {
   framework: 'jasmine2',
   capabilities: {
-    browserName: 'phantomjs'
+    browserName: 'chrome'
   },
 
   //If you don't need tests to run in a particular order, you can use this instead:
