@@ -182,5 +182,5 @@ gulp.task('fast', ['clean'], function () {
 
 gulp.task('default', ['clean'], function () {
   liveReload = false;
-  gulp.start('browserify', 'browserify-min', 'unit', 'e2e');
+  gulp.start('browserify', 'browserify-min', 'e2e');
 });
