@@ -7,7 +7,7 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "pretest": "webdriver-manager start &",
-    "test": "gulp"
+    "test": "gulp tests"
   },
   "dependencies": {
     "angular": "*",

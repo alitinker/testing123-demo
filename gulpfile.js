@@ -180,7 +180,12 @@ gulp.task('fast', ['clean'], function () {
   gulp.start('browserify');
 });
 
+gulp.task('tests', function () {
+  gulp.start('unit');
+  gulp.start('e2e');
+});
+
 gulp.task('default', ['clean'], function () {
   liveReload = false;
-  gulp.start('browserify', 'browserify-min', 'e2e');
+  gulp.start('browserify', 'browserify-min', 'unit', 'e2e');
 });
