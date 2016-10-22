@@ -7,7 +7,7 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "pretest": "webdriver-manager start &",
-    "test": "gulp tests"
+    "test": "gulp"
   },
   "dependencies": {
     "angular": "*",
@@ -21,11 +21,9 @@
     "del": "*",
     "glob": "*",
     "gulp": "*",
-    "gulp-cache": "^0.4.5",
     "gulp-cheerio": "*",
     "gulp-connect": "*",
     "gulp-eslint": "^1.1.0",
-    "gulp-imagemin": "^3.0.3",
     "gulp-load-plugins": "*",
     "gulp-protractor": "*",
     "gulp-sass": "^2.3.2",

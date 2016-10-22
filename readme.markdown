@@ -1,7 +1,5 @@
 #TESTING 1-2-3
 
-[![Build Status](https://travis-ci.org/alitinker/testing123-demo.svg?branch=master)](https://travis-ci.org/alitinker/testing123-demo.svg?branch=master)
-
 Automated testing demo for edUI conference. View this fun, little app at [dev.alisontinker.codes/testing123](http://www.dev.alisontinker.codes/testing123).
 
 ##Set up
