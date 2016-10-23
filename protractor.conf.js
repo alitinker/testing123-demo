@@ -3,7 +3,6 @@ exports.config = {
 
   framework: 'jasmine2',
 
-  chromeDriver: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.24',
 
   capabilities: {
     browserName: 'chrome'
