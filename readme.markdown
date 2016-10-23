@@ -16,10 +16,6 @@ Don't use `sudo` when you install the dependencies. If you do, the postinstall s
 
 ##Build
 
-After you've installed the items listed above and the dependencies, build the dist files by running this command:
-	
-	gulp build
-
 If you want to play around with the project files and change them, use this command to watch the files and recompile them when a change has been made. It will also spin up a local server, allowing you to view the app by navigating to http://localhost:8080/:
 
 	gulp watch
