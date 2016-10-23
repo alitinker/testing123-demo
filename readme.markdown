@@ -12,7 +12,9 @@ You need to install the following items so that you can download the dependencie
 
 Then, install the dependencies listed in package.json (cd into the root of the project folder and run `npm install`). 
 
-Don't use `sudo` when you install the dependencies. If you do, the postinstall script will probably not work and you will have to run `webdriver-manager update` manually in order to get the drivers needed to run the protractor tests.
+Don't use `sudo` when you install the dependencies. If you do, the postinstall script will probably not work and you will have to run `webdriver-manager update` manually in order to get the drivers needed to run the protractor tests. If you must use `sudo` then you can do the webdriver-manager update with this command:
+
+	node_modules/.bin/webdriver-manager update
 
 ##Build
 

@@ -12,14 +12,13 @@ describe('The course reserve app (reserving course material)', function() {
   });
 
   it('should reserve course material', function() {
-	courseReservesPage.fillForm();
+  	courseReservesPage.fillForm();
 
-	var reserveForm = courseReservesPage.formContainer;
-	expect(reserveForm.isDisplayed()).toBe(false);
+  	var reserveForm = courseReservesPage.formContainer;
+  	expect(reserveForm.isDisplayed()).toBe(false);
 
-	var reserveStatus = courseReservesPage.formStatus;
-	expect(reserveStatus.isDisplayed()).toBe(true);
-	
+  	var reserveStatus = courseReservesPage.formStatus;
+  	expect(reserveStatus.isDisplayed()).toBe(true);
   });
 
 });
