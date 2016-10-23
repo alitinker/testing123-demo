@@ -6,6 +6,7 @@ branches:
   only:
   - master
 before_script:
+- export CHROME_BIN=chromium-browser
 - cp protractor.conf.js.travis protractor.conf.js
 - cp karma.conf.js.travis karma.conf.js
 - export DISPLAY=:99.0
