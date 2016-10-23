@@ -24,7 +24,7 @@ If you want to play around with the project files and change them, use this comm
 
 To run the unit tests you can use this gulp command:
 	
-	gulp karma
+	gulp unit
 
 To run the e2e tests, use this gulp command:
 
