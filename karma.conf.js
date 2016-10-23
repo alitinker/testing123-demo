@@ -13,10 +13,6 @@ module.exports = function(config) {
         }
     },
 
-    if (process.env.TRAVIS) {
-        configuration.browsers = ['Chrome_travis_ci'];
-    },
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
